@@ -1,0 +1,14 @@
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/printPriceCalc.GeneratedMSBuildEditorConfig.editorconfig
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/printPriceCalc.AssemblyInfoInputs.cache
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/printPriceCalc.AssemblyInfo.cs
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/printPriceCalc.csproj.CoreCompileInputs.cache
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/bin/Debug/net8.0/printPriceCalc
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/bin/Debug/net8.0/printPriceCalc.deps.json
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/bin/Debug/net8.0/printPriceCalc.runtimeconfig.json
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/bin/Debug/net8.0/printPriceCalc.dll
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/bin/Debug/net8.0/printPriceCalc.pdb
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/printPriceCalc.dll
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/refint/printPriceCalc.dll
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/printPriceCalc.pdb
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/printPriceCalc.genruntimeconfig.cache
+/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/Debug/net8.0/ref/printPriceCalc.dll

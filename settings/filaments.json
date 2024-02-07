@@ -1,0 +1,156 @@
+[
+    {
+        "vendor": "Filamentum",
+        "color": "Traffic Black",
+        "type": "TPU",
+        "price": 880,
+        "weight": 500
+    },
+    {
+        "vendor": "Filamentum",
+        "color": "Traffic White",
+        "type": "PLA",
+        "price": 550,
+        "weight": 750
+    },
+    {
+        "vendor": "Filamentum",
+        "color": "Baby Blue",
+        "type": "PLA",
+        "price": 550,
+        "weight": 750
+    },
+    {
+        "vendor": "Filamentum",
+        "color": "Luminous Orange",
+        "type": "PLA",
+        "price": 550,
+        "weight": 750
+    },
+    {
+        "vendor": "Prusament",
+        "color": "Jet Black",
+        "type": "PLA",
+        "price": 700,
+        "weight": 1000
+    },
+    {
+        "vendor": "Prusament",
+        "color": "Pearl Mouse",
+        "type": "PLA",
+        "price": 700,
+        "weight": 1000
+    },
+    {
+        "vendor": "Prusament",
+        "color": "Azure Blue",
+        "type": "PLA",
+        "price": 700,
+        "weight": 1000
+    },
+    {
+        "vendor": "Prusament",
+        "color": "Prusa Galaxy Black",
+        "type": "PLA",
+        "price": 700,
+        "weight": 1000
+    },
+    {
+        "vendor": "Prusament",
+        "color": "Prusa Orange",
+        "type": "PLA",
+        "price": 700,
+        "weight": 1000
+    },
+    {
+        "vendor": "Prusament",
+        "color": "Transparent violet",
+        "type": "PETG",
+        "price": 700,
+        "weight": 1000
+    },
+    {
+        "vendor": "Prusament",
+        "color": "Urban Grey",
+        "type": "PETG",
+        "price": 700,
+        "weight": 1000
+    },
+    {
+        "vendor": "Prusament",
+        "color": "Signal White",
+        "type": "PETG",
+        "price": 700,
+        "weight": 1000
+    },
+    {
+        "vendor": "FilamentPM",
+        "color": "Signal White",
+        "type": "PLA",
+        "price": 660,
+        "weight": 1000
+    },
+    {
+        "vendor": "FilamentPM",
+        "color": "Transparent",
+        "type": "PLA",
+        "price": 660,
+        "weight": 1000
+    },
+    {
+        "vendor": "Bambulab",
+        "color": "Red",
+        "type": "PLA Basic",
+        "price": 760,
+        "weight": 1000
+    },
+    {
+        "vendor": "Bambulab",
+        "color": "Jade White",
+        "type": "PLA Basic",
+        "price": 760,
+        "weight": 1000
+    },
+    {
+        "vendor": "Bambulab",
+        "color": "Gold",
+        "type": "PLA Basic",
+        "price": 760,
+        "weight": 1000
+    },
+    {
+        "vendor": "Bambulab",
+        "color": "Black",
+        "type": "PLA Basic",
+        "price": 760,
+        "weight": 1000
+    },
+    {
+        "vendor": "Bambulab",
+        "color": "White Marble",
+        "type": "PLA Marble",
+        "price": 850,
+        "weight": 1000
+    },
+    {
+        "vendor": "Bambulab",
+        "color": "Silver",
+        "type": "PLA Silk",
+        "price": 850,
+        "weight": 1000
+    },
+    {
+        "vendor": "Bambulab",
+        "color": "Onyx Black Sparkle",
+        "type": "PLA Sparkle",
+        "price": 850,
+        "weight": 1000
+    },
+    {
+        "vendor": "Bambulab",
+        "color": "Black",
+        "type": "ABS",
+        "price": 760,
+        "weight": 1000
+    }
+]

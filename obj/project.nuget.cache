@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "rqRX53V85tMHq+JBH23ZEmg5ThzHCACLbAYyv8ngljniQRG53Lt4GkXIuaJ99JHrUBYSLHzmIpUQZFKE7tnK8A==",
+  "success": true,
+  "projectFilePath": "/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/printPriceCalc.csproj",
+  "expectedPackageFiles": [
+    "/home/kopy/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.1/microsoft.aspnetcore.app.ref.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
