@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("printPriceCalc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de1df1810c7f4e7cda27d59babbeabf631c24587")]
 [assembly: System.Reflection.AssemblyProductAttribute("printPriceCalc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("printPriceCalc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

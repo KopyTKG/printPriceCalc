@@ -1,0 +1,145 @@
+﻿
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace printPriceCalc;
+
+class Master
+{
+
+    public Master() { 
+
+
+        Main(); 
+    }
+
+
+
+    public void Main(){
+        for(int i = 0; i < _filaments.Count; i++){ 
+            var item = _filaments[i];
+            Console.Write((i+1) + ") | ");
+            Console.Write(item.Vendor + " | ");
+            Console.Write(item.Color + " | ");
+            Console.Write(item.Type + " | ");
+            Console.Write(item.Price + " | ");
+            Console.Write(item.Weight + " | ");
+            Console.WriteLine();
+        }
+        string input = "";
+        Filament? selected = null;
+        float EnergyPrice = 0;
+        float UsedFilament = 0;
+        float ManHours = 0;
+        float PrintCosts = 0;
+        float Parts = 0;
+        int PrintCount = 0;
+
+        while(selected == null){
+            Console.Write("Select a filament: "); 
+            input = Console.ReadLine() ?? "";
+            Console.WriteLine();
+            try {
+                selected = _filaments[int.Parse(input) - 1];
+            } catch {
+                Console.WriteLine("Invalid input, please try again");
+                Console.WriteLine();
+            }
+        }
+
+        while(EnergyPrice == 0){ 
+            Console.Write("Enter print time (hh:mm): ");
+            input = Console.ReadLine() ?? "";
+            Console.WriteLine();
+            try {
+                int[] time = input.Split(':').Select(int.Parse).ToArray();
+                EnergyPrice = ((float)time[0] + (float)(time[1])/60) * _Energy;
+            } catch {
+                Console.WriteLine("Invalid input, please try again");
+                Console.WriteLine();
+            }
+        }
+
+        while(ManHours == 0){ 
+            Console.Write("Enter man hours (hh:mm): ");
+            input = Console.ReadLine() ?? "";
+            Console.WriteLine();
+            try {
+                int[] time = input.Split(':').Select(int.Parse).ToArray();
+                ManHours = ((float)time[0] + (float)(time[1])/60) * _PricePerHour;
+            } catch {
+                Console.WriteLine("Invalid input, please try again");
+                Console.WriteLine();
+            }
+        }
+
+        while(UsedFilament == 0){ 
+            Console.Write("Enter filament usage (xx,xx): ");
+            input = Console.ReadLine() ?? "";
+            Console.WriteLine();
+            try {
+                var pricePreGram = ((((selected.Weight * 100) / 1000)/100) * selected.Price) / 1000;
+                UsedFilament = float.Parse(input) * pricePreGram ;
+            } catch {
+                Console.WriteLine("Invalid input, please try again");
+                Console.WriteLine();
+            }
+        }
+
+        while(PrintCosts == 0){ 
+            Console.Write("Enter print costs (xx,xx): ");
+            input = Console.ReadLine() ?? "";
+            Console.WriteLine();
+            try {
+                PrintCosts = float.Parse(input);
+            } catch {
+                Console.WriteLine("Invalid input, please try again");
+                Console.WriteLine();
+            }
+        }
+        
+        while(Parts == 0){ 
+            Console.Write("Enter print parts (x): ");
+            input = Console.ReadLine() ?? "";
+            Console.WriteLine();
+            try {
+                Parts = int.Parse(input) * (_PostProcessingTime * _PricePerHour);
+            } catch {
+                Console.WriteLine("Invalid input, please try again");
+                Console.WriteLine();
+            }
+        }
+
+        while(PrintCount == 0){ 
+            Console.Write("Enter print count (x): ");
+            input = Console.ReadLine() ?? "";
+            Console.WriteLine();
+            try {
+                PrintCount = int.Parse(input);
+            } catch {
+                Console.WriteLine("Invalid input, please try again");
+                Console.WriteLine();
+            }
+        }
+
+        float Sum = (EnergyPrice + ManHours + UsedFilament + PrintCosts + Parts + PrintCount);
+        Console.WriteLine("Energy: " + EnergyPrice);
+        Console.WriteLine("ManHours: " + ManHours);
+        Console.WriteLine("UsedFilament: " + UsedFilament);
+        Console.WriteLine("PrintCosts: " + PrintCosts);
+        Console.WriteLine("Parts: " + Parts);
+        Console.WriteLine("PrintCount: " + PrintCount);
+
+        Console.WriteLine();
+        Console.WriteLine("Sum: " + Sum);
+        Console.WriteLine();
+
+        float Total = Sum * (1 + _Margin);
+        Console.WriteLine("Total: " + Total);
+     
+    }
+}
+
