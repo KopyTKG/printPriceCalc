@@ -7,22 +7,68 @@
         Title="printPriceCalc">
     <StackPanel>
         <DockPanel>
-            <Menu DockPanel.Dock="Top">
-              <MenuItem Header="_File">
-                <MenuItem Header="_Open..."/>
-                <Separator/>
-                <MenuItem Header="_Exit" Click="Exit_Click"/>
-              </MenuItem>
-              <MenuItem Header="_Edit">
-                <MenuItem Header="Copy"/>
-                <MenuItem Header="Paste"/>
-              </MenuItem>
-            </Menu>
+        <Expander HorizontalAlignment="Left">
+          <Expander.Header>
+            Add filament
+          </Expander.Header>
+          <StackPanel Name="FilamentStack" Width="1000">
+          </StackPanel>
+        </Expander>
+        <Button Click="" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20">
+          Calculate
+        </Button>
         </DockPanel>
-        <StackPanel Name="FilamentStack">
-            <TextBlock>
-                asdasd
+        <UniformGrid Margin="20" Rows="1">
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="150"></ColumnDefinition>
+              <ColumnDefinition Width="125"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center">
+              Insert print time
             </TextBlock>
-        </StackPanel>
+            <TextBox Grid.Column="1"  VerticalAlignment="Center" Watermark="hh:mm"></TextBox>
+          </Grid>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="150"></ColumnDefinition>
+              <ColumnDefinition Width="125"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center">
+              Insert time spend
+            </TextBlock>
+            <TextBox Grid.Column="1"  VerticalAlignment="Center" Watermark="hh:mm"></TextBox>
+          </Grid>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="150"></ColumnDefinition>
+              <ColumnDefinition Width="125"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center">
+              Insert printer consts
+            </TextBlock>
+            <TextBox Grid.Column="1"  VerticalAlignment="Center" Watermark="xx,xx"></TextBox>
+          </Grid>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="150"></ColumnDefinition>
+              <ColumnDefinition Width="125"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center">
+              Insert parts per bed
+            </TextBlock>
+            <TextBox Grid.Column="1"  VerticalAlignment="Center" Watermark="x"></TextBox>
+          </Grid>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="150"></ColumnDefinition>
+              <ColumnDefinition Width="125"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center">
+              Insert amount of beds
+            </TextBlock>
+            <TextBox Grid.Column="1"  VerticalAlignment="Center" Watermark="x"></TextBox>
+          </Grid>
+        </UniformGrid>
     </StackPanel>
 </Window>
