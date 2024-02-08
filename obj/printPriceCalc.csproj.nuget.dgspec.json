@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/printPriceCalc.csproj": {}
+    "/home/kopy/Dokumenty/sharpC/printPriceCalc/printPriceCalc.csproj": {}
   },
   "projects": {
-    "/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/printPriceCalc.csproj": {
+    "/home/kopy/Dokumenty/sharpC/printPriceCalc/printPriceCalc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/printPriceCalc.csproj",
+        "projectUniqueName": "/home/kopy/Dokumenty/sharpC/printPriceCalc/printPriceCalc.csproj",
         "projectName": "printPriceCalc",
-        "projectPath": "/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/printPriceCalc.csproj",
+        "projectPath": "/home/kopy/Dokumenty/sharpC/printPriceCalc/printPriceCalc.csproj",
         "packagesPath": "/home/kopy/.nuget/packages/",
-        "outputPath": "/run/media/kopy/c15a2882-5a7d-47f9-b53b-771444a534d8/Dev/printPriceCalc/obj/",
+        "outputPath": "/home/kopy/Dokumenty/sharpC/printPriceCalc/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kopy/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,28 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[11.0.6, )"
+            },
+            "Avalonia.Desktop": {
+              "target": "Package",
+              "version": "[11.0.6, )"
+            },
+            "Avalonia.Diagnostics": {
+              "target": "Package",
+              "version": "[11.0.6, )"
+            },
+            "Avalonia.Fonts.Inter": {
+              "target": "Package",
+              "version": "[11.0.6, )"
+            },
+            "Avalonia.Themes.Fluent": {
+              "target": "Package",
+              "version": "[11.0.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
