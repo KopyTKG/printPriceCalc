@@ -1,5 +1,5 @@
 'use client'
-import Filaments from '@/modules/filamentsScreen'
+import Filaments from '@/components/filamentsScreen'
 import { Button, Input } from '@nextui-org/react'
 import { BaseDirectory, readTextFile } from '@tauri-apps/api/fs'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
@@ -25,15 +25,14 @@ export default function Home() {
  const Base = useRef()
 
  function ShowTable() {
-    const main = Base.current|| null
-    if(main) {
-
-        if (main?.classList.contains('off')) {
-            main?.classList.remove('off')
-        } else {
-            main?.classList.add('off')
-        }
-    }
+  const main = Base.current || null
+  if (main) {
+   if (main?.classList.contains('off')) {
+    main?.classList.remove('off')
+   } else {
+    main?.classList.add('off')
+   }
+  }
  }
 
  function Calculate() {
@@ -45,7 +44,7 @@ export default function Home() {
   })
 
   const designTime = document.getElementById('designTime') as HTMLInputElement
-  let timeStr = designTime.value || ""
+  let timeStr = designTime.value || ''
   let count = 0
   let time = 0
   timeStr.split(':').forEach((slot: string) => {
@@ -60,7 +59,7 @@ export default function Home() {
   total += time * settings.PricePerHour
 
   const printTime = document.getElementById('printTime') as HTMLInputElement
-  timeStr = printTime.value || ""
+  timeStr = printTime.value || ''
   count = 0
   time = 0
   timeStr.split(':').forEach((slot: string) => {
