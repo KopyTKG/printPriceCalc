@@ -1,3 +1,4 @@
+'use client'
 import { Checkbox } from '@nextui-org/react'
 import {
  ReactElement,
@@ -76,16 +77,19 @@ function Filaments(props: {
    props.setSelected([...props.selected, id])
   }
  }
+ //
+ //
+ //
  return (
-  <div ref={props.Ref} className="flex w-screen justify-center base off z-10">
-   <div className="flex flex-col w-[80vw] bg-gray-800 border-2 border-white px-2 py-3 rounded-md">
+  <div ref={props.Ref} className="w-screen flex justify-center base off z-10">
+   <div className="flex flex-col w-[80%] bg-gray-800 border-2 border-white px-2 py-3 rounded-md">
     <div className="bg-slate-300 text-black inline-grid grid-cols-6 gap-4">
-     <span>Add</span>
-     <span>Vendor</span>
-     <span>Color</span>
-     <span>Type</span>
-     <span>Price</span>
-     <span>Weight</span>
+     <div>Add</div>
+     <div>Vendor</div>
+     <div>Color</div>
+     <div>Type</div>
+     <div>Price</div>
+     <div>Weight</div>
     </div>
     {props.filaments.map(
      (
@@ -147,14 +151,14 @@ function Filaments(props: {
        <div
         key={key + filament.vendor + filament.color + filament.type}
         className="inline-grid grid-cols-6 gap-4">
-        <span>
+        <div>
          <Checkbox size="md" onClick={() => SelectedFilaments(key)}></Checkbox>
-        </span>
-        <span>{filament.vendor}</span>
-        <span>{filament.color}</span>
-        <span>{filament.type}</span>
-        <span>{filament.price}</span>
-        <span>{filament.weight}</span>
+        </div>
+        <div>{filament.vendor}</div>
+        <div>{filament.color}</div>
+        <div>{filament.type}</div>
+        <div>{filament.price}</div>
+        <div>{filament.weight}</div>
        </div>
       )
      },
