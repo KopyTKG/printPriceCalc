@@ -3,7 +3,7 @@ use std::io::{self, Write};
 use std::path::Path;
 
 fn main() {
-    setup();
+    let _ = setup();
 
     // Proceed with Tauri application setup
     tauri::Builder::default()
@@ -18,6 +18,7 @@ fn setup() -> io::Result<()> {
     let config_dir = format!("{}/.config/3DprintCalc", home_dir);
 
     let filaments_path = format!("{}/filaments.json", config_dir);
+    let example_path = format!("{}/filaments.example.json", config_dir);
     let vars_path = format!("{}/vars.json", config_dir);
 
     let path = Path::new(&config_dir);
@@ -29,9 +30,11 @@ fn setup() -> io::Result<()> {
             eprintln!("Failed to create directory: {}", e);
             return Err(e); // Propagate the error
         }
-
         let mut filament_file = File::create(&filaments_path)?;
-        filament_file.write_all(b"[{\"vendor\": \"\",\"color\": \"\",\"type\": \"\",\"price\": 0,\"weight\": 0}]")?;
+        filament_file.write_all(b"[]")?;
+
+        let mut example_file = File::create(&example_path)?;
+        example_file.write_all(b"[{\"vendor\": \"\",\"color\": \"\",\"type\": \"\",\"price\": 0,\"weight\": 0}]")?;
 
         let mut vars_file = File::create(&vars_path)?;
         vars_file.write_all(b"{\"Energy\": 0,\"Margin\": 0.00,\"PricePerHour\": 0,\"PostProcessing\": 0.00}")?;

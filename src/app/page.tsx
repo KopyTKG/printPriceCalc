@@ -5,6 +5,7 @@ import { BaseDirectory, readTextFile } from '@tauri-apps/api/fs'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 
 export default function Home() {
+ const [defaultLoad, setDefault] = useState(false)
  const [filaments, setFilaments] = useState([
   {
    vendor: '',
@@ -121,7 +122,12 @@ export default function Home() {
   const raw = await readTextFile('filaments.json', {
    dir: BaseDirectory.AppConfig,
   })
-  setFilaments(JSON.parse(raw))
+  let res = JSON.parse(raw)
+  if (res.length > 0) {
+   setFilaments(JSON.parse(raw))
+  } else {
+   setDefault(true)
+  }
  }
 
  async function ReadSettings() {
@@ -137,8 +143,30 @@ export default function Home() {
  }, [])
  return (
   <main className="min-h-screen min-w-screen">
+   {defaultLoad ? (
+    <div className="absolute w-screen h-screen bg-black/80 z-50">
+     <div className="absolute w-[60vw] h-[40vh] bg-red-300 left-[20vw] top-[30vh] z-50 rounded-xl border-2">
+      <div className="text-black text-lg flex justify-center flex-col items-center h-full">
+       <span className="text-2xl font-bold">
+        You are currently using default config!! <br />
+       </span>
+       <span>
+        Please change <code className="font-bold text-xl">filaments.json</code> and{' '}
+        <code className="font-bold text-xl"> vars.json</code> at <br />
+       </span>
+       <code className="font-bold text-2xl">~/.config/3DprintCalc</code>
+       <span>After that restart the app.</span>
+      </div>
+     </div>
+    </div>
+   ) : null}
    <nav className="grid grid-cols-2 py-2 bg-gray-800 min-h-10 mb-5 px-3">
-    <Button type="button" color="success" onClick={() => ShowTable()} className="w-max">
+    <Button
+     type="button"
+     color="success"
+     onClick={() => ShowTable()}
+     className="w-max"
+     isDisabled={defaultLoad}>
      Select filament
     </Button>
     <div className="flex justify-end">

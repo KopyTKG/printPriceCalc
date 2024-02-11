@@ -77,12 +77,18 @@ function Filaments(props: {
    props.setSelected([...props.selected, id])
   }
  }
- //
- //
- //
+
+ function HideSelection() {
+  const base = props.Ref.current
+  base.classList.add('off')
+ }
+
  return (
-  <div ref={props.Ref} className="w-screen flex justify-center base off z-10">
-   <div className="flex flex-col w-[80%] bg-gray-800 border-2 border-white px-2 py-3 rounded-md">
+  <div
+   ref={props.Ref}
+   className="absolute w-screen h-screen top-0 left-0 bg-black/75 flex justify-center base off z-10">
+   <div className=" absolute w-screen h-screen -z-10" onClick={() => HideSelection()} />
+   <div className="flex flex-col w-[80%] min-h-[90%] max-h-[90vh] mt-[5vh] bg-gray-800 border-2 border-white px-2 py-3 rounded-md">
     <div className="bg-slate-300 text-black inline-grid grid-cols-6 gap-4">
      <div>Add</div>
      <div>Vendor</div>
@@ -150,7 +156,7 @@ function Filaments(props: {
       return (
        <div
         key={key + filament.vendor + filament.color + filament.type}
-        className="inline-grid grid-cols-6 gap-4">
+        className="inline-grid grid-cols-6 gap-4 hover:bg-white/30">
         <div>
          <Checkbox size="md" onClick={() => SelectedFilaments(key)}></Checkbox>
         </div>
