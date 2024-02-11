@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "3DprintCalc",
-    "version": "0.1.0"
+    "version": "0.3.0"
   },
   "tauri": {
     "allowlist": {
@@ -75,7 +75,7 @@
       "fullscreen": false,
       "height": 800,
       "resizable": false,
-      "title": "3D print Calc",
+      "title": "3D Print Calculator",
       "width": 1300
     }
   ]
