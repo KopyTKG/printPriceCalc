@@ -4,6 +4,7 @@ import './globals.css'
 import '../sass/index.sass'
 import React from 'react'
 import Providers from './providers'
+import Package from '../../package.json'
 
 // 1. import `NextUIProvider` component
 
@@ -21,6 +22,9 @@ export default function RootLayout({
   <html lang="en">
    <body className={GeistSans.className}>
     <Providers>{children}</Providers>
+    <footer className="test-white absolute bottom-0 w-screen flex justify-center">
+     Build v{Package.version}
+    </footer>
    </body>
   </html>
  )
