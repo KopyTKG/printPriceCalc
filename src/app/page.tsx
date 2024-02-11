@@ -1,5 +1,7 @@
 'use client'
 import Filaments from '@/components/filamentsScreen'
+import AddScreen from '@/components/addScreen'
+import Navbar from '@/components/navbar'
 import { Button, Input } from '@nextui-org/react'
 import { BaseDirectory, readTextFile } from '@tauri-apps/api/fs'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
@@ -24,6 +26,7 @@ export default function Home() {
  })
  const [selected, setSelected] = useState(Array<number>())
  const Base = useRef()
+ const AddScreenRef = useRef()
 
  function ShowTable() {
   const main = Base.current || null
@@ -35,6 +38,19 @@ export default function Home() {
    }
   }
  }
+
+ function ShowAddScreen() {
+    const main = AddScreenRef.current || null
+    if (main) {
+     if (main?.classList.contains('off')) {
+      main?.classList.remove('off')
+     } else {
+      main?.classList.add('off')
+     }
+    }
+   }
+
+
 
  function Calculate() {
   let total = 0
@@ -160,21 +176,8 @@ export default function Home() {
      </div>
     </div>
    ) : null}
-   <nav className="grid grid-cols-2 py-2 bg-gray-800 min-h-10 mb-5 px-3">
-    <Button
-     type="button"
-     color="success"
-     onClick={() => ShowTable()}
-     className="w-max"
-     isDisabled={defaultLoad}>
-     Select filament
-    </Button>
-    <div className="flex justify-end">
-     <Button type="button" color="primary" className="w-max right-0" onClick={() => Calculate()}>
-      Calculate
-     </Button>
-    </div>
-   </nav>
+   <Navbar ShowTable={ShowTable} Calculate={Calculate} ShowAddScreen={ShowAddScreen} />
+   <AddScreen Ref={AddScreenRef} ReadFilaments={ReadFilaments} />
    <Filaments Ref={Base} filaments={filaments} setSelected={setSelected} selected={selected} />
    <div className="grid grid-cols-[60%,40%] w-screen">
     <div className="flex flex-col mx-5 gap-2">

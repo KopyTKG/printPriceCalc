@@ -1,7 +1,10 @@
 {
-  "name": "my-app",
-  "version": "0.2.0",
-  "private": true,
+  "name": "3DCalc",
+  "author": "KopyTKG",
+  "description": "3D print cost calculator",
+  "license": "MIT",
+  "version": "0.3.0",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
