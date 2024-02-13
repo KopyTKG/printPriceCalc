@@ -1,6 +1,11 @@
 import { Button } from '@nextui-org/react'
 
-function Navbar(props) {
+function Navbar(props: {
+ ShowAddScreen: () => void
+ ShowTable: () => void
+ Calculate: () => void
+ defaultLoad: boolean
+}) {
  return (
   <nav className="grid grid-cols-2 py-2 bg-gray-800 min-h-10 mb-5 px-3">
    <div className="flex gap-5 ">
