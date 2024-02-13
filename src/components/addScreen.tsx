@@ -1,10 +1,9 @@
 'use client'
 import { XMarkIcon } from '@heroicons/react/20/solid'
 import { Button, Input } from '@nextui-org/react'
-import { invoke } from '@tauri-apps/api'
-import { ChangeEvent, useRef, useState } from 'react'
+import { ChangeEvent, useRef, useState, useEffect, RefObject } from 'react'
 
-function Addscreen(props) {
+function Addscreen(props: { Ref: RefObject<HTMLDivElement>; ReadFilaments: () => void }) {
  const [vendor, setVendor] = useState('')
  const [color, setColor] = useState('')
  const [type, setType] = useState('')
@@ -23,6 +22,10 @@ function Addscreen(props) {
  const Price = useRef(null)
  const Weight = useRef(null)
 
+ useEffect(() => {
+  // Client-side initialization logic, if any, can go here
+ }, [])
+
  function HideScreen() {
   const main = props.Ref.current || null
   main?.classList.add('off')
@@ -30,35 +33,20 @@ function Addscreen(props) {
 
  async function AddFilament() {
   if (!vendor || !color || !type || !price || !weight) {
-
-   if (!vendor) {
-    set_Val_Vendor(false)
-   }
-   if (!color) {
-    set_Val_Color(false)
-   }
-   if (!type) {
-    set_Val_Type(false)
-   }
-   if (!price) {
-    set_Val_Price(false)
-   }
-   if (!weight) {
-    set_Val_Weight(false)
-   }
+   set_Val_Vendor(!vendor)
+   set_Val_Color(!color)
+   set_Val_Type(!type)
+   set_Val_Price(!price)
+   set_Val_Weight(!weight)
   } else {
-    const VendorCur = Vendor.current || null
-    const ColorCur = Color.current || null
-    const TypeCur = Type.current || null
-    const PriceCur = Price.current || null
-    const WeightCur = Weight.current || null
-    VendorCur.value = ''
-    ColorCur.value = ''
-    TypeCur.value = ''
-    PriceCur.value = ''
-    WeightCur.value = ''
+   Vendor.current.value = ''
+   Color.current.value = ''
+   Type.current.value = ''
+   Price.current.value = ''
+   Weight.current.value = ''
 
-    const res = await invoke<string>('write_filament', {
+   const index = await import('@tauri-apps/api')
+   const res = await index.invoke('write_filament', {
     vendor: vendor,
     color: color,
     type: type,
@@ -66,22 +54,27 @@ function Addscreen(props) {
     weight: weight,
    })
 
-   if (res) {
-    console.log(res)
-   }
-    
+   console.log(res)
 
-    setVendor('')
-    setColor('')
-    setType('')
-    setPrice(0)
-    setWeight(0)
+   setVendor('')
+   setColor('')
+   setType('')
+   setPrice(0)
+   setWeight(0)
 
-    props.ReadFilaments()
+   set_Val_Vendor(true)
+   set_Val_Color(true)
+   set_Val_Type(true)
+   set_Val_Price(true)
+   set_Val_Weight(true)
+
+   props.ReadFilaments()
   }
  }
  return (
-  <div ref={props.Ref} className="w-screen h-screen bg-gray-800 absolute top-0 left-0 z-50 base off">
+  <div
+   ref={props.Ref}
+   className="w-screen h-screen bg-gray-800 absolute top-0 left-0 z-50 base off">
    <div className="w-screen flex justify-end px-5 py-5">
     <XMarkIcon className="w-10 h-10 cursor-pointer stroke-red-600" onClick={() => HideScreen()} />
    </div>
@@ -96,7 +89,10 @@ function Addscreen(props) {
       placeholder="Prusament"
       color="primary"
       value={vendor}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => {setVendor(e.target.value); set_Val_Vendor(true)}}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => {
+       setVendor(e.target.value)
+       set_Val_Vendor(true)
+      }}
       required
      />
 
@@ -108,7 +104,10 @@ function Addscreen(props) {
       placeholder="Jet Black"
       color="primary"
       value={color}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => {setColor(e.target.value); set_Val_Color(true)}}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => {
+       setColor(e.target.value)
+       set_Val_Color(true)
+      }}
       required
      />
 
@@ -120,7 +119,10 @@ function Addscreen(props) {
       placeholder="PLA"
       color="primary"
       value={type}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => {setType(e.target.value); set_Val_Type(true)}}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => {
+       setType(e.target.value)
+       set_Val_Type(true)
+      }}
       required
      />
 
@@ -133,7 +135,10 @@ function Addscreen(props) {
       color="primary"
       value={price === 0 ? '' : price.toString()}
       endContent={<span>Kč</span>}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => {setPrice(Number(e.target.value)); set_Val_Price(true)}}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => {
+       setPrice(Number(e.target.value))
+       set_Val_Price(true)
+      }}
       required
      />
 
@@ -146,7 +151,10 @@ function Addscreen(props) {
       color="primary"
       value={weight === 0 ? '' : weight.toString()}
       endContent={<span>g</span>}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => {setWeight(Number(e.target.value)); set_Val_Weight(true)}}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => {
+       setWeight(Number(e.target.value))
+       set_Val_Weight(true)
+      }}
       required
      />
     </div>

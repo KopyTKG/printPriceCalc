@@ -1,8 +1,8 @@
 'use client'
-import Filaments from '@/components/filamentsScreen'
 import AddScreen from '@/components/addScreen'
+import Filaments from '@/components/filamentsScreen'
 import Navbar from '@/components/navbar'
-import { Button, Input } from '@nextui-org/react'
+import { Input } from '@nextui-org/react'
 import { BaseDirectory, readTextFile } from '@tauri-apps/api/fs'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 
@@ -40,17 +40,15 @@ export default function Home() {
  }
 
  function ShowAddScreen() {
-    const main = AddScreenRef.current || null
-    if (main) {
-     if (main?.classList.contains('off')) {
-      main?.classList.remove('off')
-     } else {
-      main?.classList.add('off')
-     }
-    }
+  const main = AddScreenRef.current || null
+  if (main) {
+   if (main?.classList.contains('off')) {
+    main?.classList.remove('off')
+   } else {
+    main?.classList.add('off')
    }
-
-
+  }
+ }
 
  function Calculate() {
   let total = 0
@@ -176,7 +174,12 @@ export default function Home() {
      </div>
     </div>
    ) : null}
-   <Navbar ShowTable={ShowTable} Calculate={Calculate} ShowAddScreen={ShowAddScreen} />
+   <Navbar
+    ShowTable={ShowTable}
+    Calculate={Calculate}
+    ShowAddScreen={ShowAddScreen}
+    defaultLoad={defaultLoad}
+   />
    <AddScreen Ref={AddScreenRef} ReadFilaments={ReadFilaments} />
    <Filaments Ref={Base} filaments={filaments} setSelected={setSelected} selected={selected} />
    <div className="grid grid-cols-[60%,40%] w-screen">
