@@ -1,4 +1,12 @@
-import { Button } from '@nextui-org/react'
+import { PlusIcon } from '@heroicons/react/20/solid'
+import {
+ Button,
+ Dropdown,
+ DropdownTrigger,
+ DropdownMenu,
+ DropdownItem,
+ Divider,
+} from '@nextui-org/react'
 
 function Navbar(props: {
  ShowAddScreen: () => void
@@ -7,35 +15,40 @@ function Navbar(props: {
  defaultLoad: boolean
 }) {
  return (
-  <nav className="grid grid-cols-2 py-2 bg-gray-800 min-h-10 mb-5 px-3">
+  <nav className="grid grid-cols-2 py-2 bg-slate-900 min-h-10 mb-5 px-3">
    <div className="flex gap-5 ">
+    <Dropdown className="text-white">
+     <DropdownTrigger>
+      <Button variant="light" color="primary" className="font-bold text-lg">
+       Filaments
+      </Button>
+     </DropdownTrigger>
+     <DropdownMenu
+      aria-label="Static Actions"
+      variant="bordered"
+      color="primary"
+      className="text-black">
+      <DropdownItem
+       key="new"
+       startContent={<PlusIcon className="w-4 h-4" />}
+       description="Add filament to configuration file"
+       onClick={() => props.ShowAddScreen()}>
+       New filament
+      </DropdownItem>
+     </DropdownMenu>
+    </Dropdown>
+    <Divider orientation="vertical" className="bg-gray-500" />
     <Button
-     type="button"
-     color="warning"
-     onClick={() => props.ShowAddScreen()}
-     className="w-max"
-     isDisabled={props.defaultLoad}>
-     Add
-    </Button>
-
-    <Button
+     variant="light"
      type="button"
      color="success"
      onClick={() => props.ShowTable()}
-     className="w-max"
+     className="w-max font-bold text-lg"
      isDisabled={props.defaultLoad}>
      Select filament
     </Button>
    </div>
-   <div className="flex justify-end">
-    <Button
-     type="button"
-     color="primary"
-     className="w-max right-0"
-     onClick={() => props.Calculate()}>
-     Calculate
-    </Button>
-   </div>
+   <div className="flex justify-end"></div>
   </nav>
  )
 }
