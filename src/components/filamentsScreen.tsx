@@ -1,4 +1,5 @@
 'use client'
+import { XMarkIcon } from '@heroicons/react/20/solid'
 import { Checkbox } from '@nextui-org/react'
 import {
  ReactElement,
@@ -87,6 +88,10 @@ function Filaments(props: {
   <div
    ref={props.Ref}
    className="absolute w-screen h-screen top-0 left-0 bg-black/75 flex justify-center base off z-10">
+   <XMarkIcon
+    className="w-10 h-10 cursor-pointer stroke-red-600 absolute top-5 right-5"
+    onClick={() => HideSelection()}
+   />
    <div className=" absolute w-screen h-screen -z-10" onClick={() => HideSelection()} />
    <div className="flex flex-col w-[80%] min-h-[90%] max-h-[90vh] mt-[5vh] bg-gray-800 border-2 border-white px-2 py-3 rounded-md">
     <div className="bg-slate-300 text-black inline-grid grid-cols-6 gap-4">
@@ -156,9 +161,14 @@ function Filaments(props: {
       return (
        <div
         key={key + filament.vendor + filament.color + filament.type}
-        className="inline-grid grid-cols-6 gap-4 hover:bg-white/30">
+        className="inline-grid grid-cols-6 gap-4 hover:bg-white/30"
+        onClick={() => SelectedFilaments(key)}>
         <div>
-         <Checkbox size="md" onClick={() => SelectedFilaments(key)}></Checkbox>
+         <Checkbox
+          isSelected={props.selected.includes(key)}
+          id={key + filament.vendor + filament.color}
+          size="md"
+          onClick={() => SelectedFilaments(key)}></Checkbox>
         </div>
         <div>{filament.vendor}</div>
         <div>{filament.color}</div>
