@@ -1,5 +1,7 @@
 'use client'
-import AddScreen from '@/components/addScreen'
+import Removescreen from '@/components/RemoveScreen'
+import Addscreen from '@/components/addScreen'
+import Editscreen from '@/components/editScreen'
 import Filaments from '@/components/filamentsScreen'
 import Navbar from '@/components/navbar'
 import { Button, Input } from '@nextui-org/react'
@@ -26,21 +28,12 @@ export default function Home() {
  })
  const [selected, setSelected] = useState(Array<number>())
  const Base = useRef()
- const AddScreenRef = useRef()
+ const AddScreen = useRef()
+ const EditScreen = useRef()
+ const RemoveScreen = useRef()
 
  function ShowTable() {
   const main = Base.current || null
-  if (main) {
-   if (main?.classList.contains('off')) {
-    main?.classList.remove('off')
-   } else {
-    main?.classList.add('off')
-   }
-  }
- }
-
- function ShowAddScreen() {
-  const main = AddScreenRef.current || null
   if (main) {
    if (main?.classList.contains('off')) {
     main?.classList.remove('off')
@@ -157,30 +150,17 @@ export default function Home() {
  }, [])
  return (
   <main className="min-h-screen min-w-screen">
-   {defaultLoad ? (
-    <div className="absolute w-screen h-screen bg-black/80 z-50">
-     <div className="absolute w-[60vw] h-[40vh] bg-red-300 left-[20vw] top-[30vh] z-50 rounded-xl border-2">
-      <div className="text-black text-lg flex justify-center flex-col items-center h-full">
-       <span className="text-2xl font-bold">
-        You are currently using default config!! <br />
-       </span>
-       <span>
-        Please change <code className="font-bold text-xl">filaments.json</code> and{' '}
-        <code className="font-bold text-xl"> vars.json</code> at <br />
-       </span>
-       <code className="font-bold text-2xl">~/.config/3DprintCalc</code>
-       <span>After that restart the app.</span>
-      </div>
-     </div>
-    </div>
-   ) : null}
    <Navbar
     ShowTable={ShowTable}
     Calculate={Calculate}
-    ShowAddScreen={ShowAddScreen}
+    AddRef={AddScreen}
+    EditRef={EditScreen}
+    RemoveRef={RemoveScreen}
     defaultLoad={defaultLoad}
    />
-   <AddScreen Ref={AddScreenRef} ReadFilaments={ReadFilaments} />
+   <Addscreen Ref={AddScreen} ReadFilaments={ReadFilaments} />
+   <Editscreen Ref={EditScreen} ReadFilaments={ReadFilaments} Filaments={filaments} />
+   <Removescreen Ref={RemoveScreen} ReadFilaments={ReadFilaments} Filaments={filaments} />
    <Filaments Ref={Base} filaments={filaments} setSelected={setSelected} selected={selected} />
    <div className="grid grid-cols-[60%,40%] w-screen">
     <div className="flex flex-col mx-5 gap-2">
