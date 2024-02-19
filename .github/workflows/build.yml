@@ -9,6 +9,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
-      - run: apt-get install libgtk-3-dev
+      - run: sudo apt-get install libgtk-3-dev
       - run: npm i
       - run: npm run tauri build -- --verbose
