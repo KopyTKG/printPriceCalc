@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - 'v*'
+      - 'bate-v.*.*'
   workflow_dispatch:
 
 jobs:
