@@ -43,6 +43,7 @@ jobs:
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
+        path: ./src-tauri/target/release/bundle/appimage/*
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
