@@ -6,7 +6,7 @@ PrintCalc is webbased app written in [Next.JS](https://github.com/vercel/next.js
 
 ---
 
-![GitHub License](https://img.shields.io/github/license/kopytkg/printPriceCalc) ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/KopyTKG/printPriceCalc/Tauri) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/kopytkg/printPriceCalc/release.yml) ![GitHub commits since latest release (branch)](https://img.shields.io/github/commits-since/kopytkg/printPriceCalc/latest/Live)
+![GitHub License](https://img.shields.io/github/license/kopytkg/printPriceCalc) ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/KopyTKG/printPriceCalc/Live) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/kopytkg/printPriceCalc/release.yml) ![GitHub commits since latest release (branch)](https://img.shields.io/github/commits-since/kopytkg/printPriceCalc/latest/Live)
 
 ---
 ## Security
