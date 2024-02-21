@@ -7,8 +7,8 @@
     "distDir": "../out"
   },
   "package": {
-    "productName": "3DprintCalc",
-    "version": "0.4.0"
+    "productName": "PrintCalc",
+    "version": "0.4.1"
   },
   "tauri": {
     "allowlist": {
@@ -46,7 +46,7 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "identifier": "3DprintCalc",
+    "identifier": "PrintCalc",
     "longDescription": "",
     "macOS": {
       "entitlements": null,
