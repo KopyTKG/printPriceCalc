@@ -8,7 +8,6 @@ const FOLDER_NAME: &str = "PrintCalc";
 
 fn main() {
     let _ = setup();
-
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![write_filament])
         .invoke_handler(tauri::generate_handler![edit_filament])
@@ -57,7 +56,6 @@ fn write_filament(vendor: &str, color: &str, type_: &str, price: i32, weight: i3
 
     let file_path = format!("{}/filaments.json", path);
     
-
     let mut file_content = match std::fs::read_to_string(file_path.clone()) {
         Ok(content) => content,
         Err(e) => return Err(format!("Failed to read file: {}", e)),
@@ -77,12 +75,10 @@ fn write_filament(vendor: &str, color: &str, type_: &str, price: i32, weight: i3
     });
 
     array.push(new_entry);
-
     file_content = match serde_json::to_string(&array) {
         Ok(json_string) => json_string,
         Err(e) => return Err(format!("Failed to serialize JSON: {}", e)),
     };
-
     match std::fs::write(file_path.clone(), file_content) {
         Ok(_) => Ok(format!("Successfully updated {}", file_path.clone())),
         Err(e) => Err(format!("Failed to write to file: {}", e)),
@@ -96,7 +92,6 @@ fn edit_filament(id: usize, vendor: &str, color: &str, type_: &str, price: i32, 
     let path = format!("{}/{}", path_dir.display(), FOLDER_NAME);
 
     let file_path = format!("{}/filaments.json", path);
-    
     let mut file_content = match std::fs::read_to_string(file_path.clone()) {
         Ok(content) => content,
         Err(e) => return Err(format!("Failed to read file: {}", e)),
@@ -105,8 +100,8 @@ fn edit_filament(id: usize, vendor: &str, color: &str, type_: &str, price: i32, 
     let mut array: Vec<serde_json::Value> = match serde_json::from_str(&file_content) {
         Ok(array) => array,
         Err(_) => vec![],
-    };
 
+    };
     array[id] = serde_json::json!({
         "vendor": vendor,
         "color": color,
@@ -133,7 +128,6 @@ fn remove_filament(id: usize) -> Result<String, String> {
     let path = format!("{}/{}", path_dir.display(), FOLDER_NAME);
 
     let file_path = format!("{}/filaments.json", path);
-    
     let mut file_content = match std::fs::read_to_string(file_path.clone()) {
         Ok(content) => content,
         Err(e) => return Err(format!("Failed to read file: {}", e)),
@@ -149,7 +143,6 @@ fn remove_filament(id: usize) -> Result<String, String> {
         Ok(json_string) => json_string,
         Err(e) => return Err(format!("Failed to serialize JSON: {}", e)),
     };
-
     match std::fs::write(file_path.clone(), file_content) {
         Ok(_) => Ok(format!("Successfully updated {}", file_path.clone())),
         Err(e) => Err(format!("Failed to write to file: {}", e)),
