@@ -10,11 +10,9 @@
 name: ESLint
 
 on:
-  push:
-    branches: [ "Live", "Preview" ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "Live", "Preview" ]
+    branches: [ "Live" ]
   schedule:
     - cron: '37 14 * * 5'
 
