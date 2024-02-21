@@ -3,7 +3,7 @@
   "author": "KopyTKG",
   "description": "3D print cost calculator",
   "license": "AGPL-3.0-only",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": false,
   "scripts": {
     "dev": "next dev",

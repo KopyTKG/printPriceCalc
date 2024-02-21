@@ -1,6 +1,10 @@
 use std::fs::{self, File};
 use std::io::{self, Write};
+use tauri::api::path;
 use std::path::Path;
+
+const FOLDER_NAME: &str = "PrintCalc";
+
 
 fn main() {
     let _ = setup();
@@ -16,14 +20,15 @@ fn main() {
 
 
 fn setup() -> io::Result<()> {
-    let home_dir = std::env::var("HOME").expect("HOME environment variable not set");
-    let config_dir = format!("{}/.config/3DprintCalc", home_dir);
+    let path_dir = path::config_dir().expect("Incorrect path");
+    let path = format!("{}/{}", path_dir.display(), FOLDER_NAME);
 
-    let filaments_path = format!("{}/filaments.json", config_dir);
-    let example_path = format!("{}/filaments.example.json", config_dir);
-    let vars_path = format!("{}/vars.json", config_dir);
+    let filaments_path = format!("{}/filaments.json", path);
+    let example_path = format!("{}/filaments.example.json", path);
+    let vars_path = format!("{}/vars.json", path);
 
-    let path = Path::new(&config_dir);
+
+    let path = Path::new(&path);
 
     if path.exists() && path.is_dir() {
         println!("The directory already exists.");
@@ -47,10 +52,11 @@ fn setup() -> io::Result<()> {
 
 #[tauri::command]
 fn write_filament(vendor: &str, color: &str, type_: &str, price: i32, weight: i32) -> Result<String, String> {
-    let home_dir = std::env::var("HOME").expect("HOME environment variable not set");
-    let config_dir = format!("{}/.config/3DprintCalc", home_dir);
+    let path_dir = path::config_dir().expect("Incorrect path");
+    let path = format!("{}/{}", path_dir.display(), FOLDER_NAME);
 
-    let file_path = format!("{}/filaments.json", config_dir);
+    let file_path = format!("{}/filaments.json", path);
+    
 
     let mut file_content = match std::fs::read_to_string(file_path.clone()) {
         Ok(content) => content,
@@ -86,11 +92,11 @@ fn write_filament(vendor: &str, color: &str, type_: &str, price: i32, weight: i3
 
 #[tauri::command]
 fn edit_filament(id: usize, vendor: &str, color: &str, type_: &str, price: i32, weight: i32) -> Result<String, String> {
-    let home_dir = std::env::var("HOME").expect("HOME environment variable not set");
-    let config_dir = format!("{}/.config/3DprintCalc", home_dir);
+    let path_dir = path::config_dir().expect("Incorrect path");
+    let path = format!("{}/{}", path_dir.display(), FOLDER_NAME);
 
-    let file_path = format!("{}/filaments.json", config_dir);
-
+    let file_path = format!("{}/filaments.json", path);
+    
     let mut file_content = match std::fs::read_to_string(file_path.clone()) {
         Ok(content) => content,
         Err(e) => return Err(format!("Failed to read file: {}", e)),
@@ -123,11 +129,11 @@ fn edit_filament(id: usize, vendor: &str, color: &str, type_: &str, price: i32, 
 
 #[tauri::command]
 fn remove_filament(id: usize) -> Result<String, String> {
-    let home_dir = std::env::var("HOME").expect("HOME environment variable not set");
-    let config_dir = format!("{}/.config/3DprintCalc", home_dir);
+    let path_dir = path::config_dir().expect("Incorrect path");
+    let path = format!("{}/{}", path_dir.display(), FOLDER_NAME);
 
-    let file_path = format!("{}/filaments.json", config_dir);
-
+    let file_path = format!("{}/filaments.json", path);
+    
     let mut file_content = match std::fs::read_to_string(file_path.clone()) {
         Ok(content) => content,
         Err(e) => return Err(format!("Failed to read file: {}", e)),
